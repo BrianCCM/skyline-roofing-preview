@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyline Roofing Specialists | Southern Utah Roofing Experts</title>
+<meta name="description" content="Licensed, insured roofing specialists serving Cedar City, St. George and Southern Utah for over 10 years. 52 five-star Google reviews. Get a free, no-obligation estimate." />
+<link rel="icon" href="brand_assets/skyline-logo.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            red:   '#C52026',
+            red2:  '#9E181D',
+            redlt: '#E23A40',
+            ink:   '#15181C',
+            slate: '#3A4149',
+            steel: '#6B7480',
+            cream: '#F6F4F1',
+            line:  '#E7E3DE',
+          },
+          g: { blue: '#4285F4', red: '#EA4335', yellow: '#FBBC05', green: '#34A853' },
+        },
+        fontFamily: {
+          display: ['Poppins', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        boxShadow: {
+          card: '0 1px 2px rgba(21,24,28,.04), 0 12px 28px -8px rgba(21,24,28,.18), 0 40px 80px -32px rgba(21,24,28,.28)',
+          float: '0 2px 6px rgba(21,24,28,.06), 0 24px 60px -16px rgba(21,24,28,.35)',
+          redglow: '0 10px 24px -8px rgba(197,32,38,.55)',
+        },
+        transitionTimingFunction: {
+          spring: 'cubic-bezier(.34,1.56,.64,1)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root { --space: 1.5rem; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #15181C; }
+  .font-display { font-family: 'Poppins', sans-serif; }
+
+  /* Grain / noise texture overlay */
+  .grain::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: .05; mix-blend-mode: overlay; pointer-events: none;
+  }
+
+  /* Hero image treatment */
+  .hero-photo {
+    background-image:
+      linear-gradient(90deg, rgba(15,18,22,.92) 0%, rgba(15,18,22,.72) 42%, rgba(15,18,22,.30) 72%, rgba(15,18,22,.55) 100%),
+      radial-gradient(120% 90% at 12% 30%, rgba(158,24,29,.28), transparent 55%),
+      url("images/job-20.jpg");
+    background-size: cover;
+    background-position: center 40%;
+  }
+  .hero-tint {
+    position: absolute; inset: 0;
+    background: #9E181D; mix-blend-mode: multiply; opacity: .12; pointer-events: none;
+  }
+
+  .eyebrow { letter-spacing: .18em; }
+
+  /* Star rating */
+  .stars svg { filter: drop-shadow(0 1px 1px rgba(0,0,0,.15)); }
+
+  /* Inputs */
+  .field {
+    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+  }
+  .field:focus-visible, .field:focus {
+    outline: none;
+    border-color: #C52026;
+    box-shadow: 0 0 0 4px rgba(197,32,38,.14);
+    background: #fff;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    background-image: linear-gradient(180deg, #D3282E 0%, #C52026 55%, #9E181D 100%);
+    transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease, filter .2s ease;
+    will-change: transform;
+  }
+  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.04); box-shadow: 0 16px 34px -10px rgba(197,32,38,.65); }
+  .btn-primary:active { transform: translateY(0) scale(.99); }
+  .btn-primary:focus-visible { outline: 3px solid rgba(197,32,38,.4); outline-offset: 3px; }
+
+  .btn-ghost { transition: background-color .2s ease, color .2s ease, transform .2s ease, border-color .2s ease; }
+  .btn-ghost:hover { background: #C52026; color: #fff; transform: translateY(-1px); }
+  .btn-ghost:active { transform: translateY(0); }
+  .btn-ghost:focus-visible { outline: 3px solid rgba(197,32,38,.35); outline-offset: 2px; }
+
+  .navlink { position: relative; transition: color .2s ease; }
+  .navlink::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+    background: #C52026; transform: scaleX(0); transform-origin: left; transition: transform .28s cubic-bezier(.34,1.56,.64,1);
+  }
+  .navlink:hover { color: #C52026; }
+  .navlink:hover::after { transform: scaleX(1); }
+  .navlink:focus-visible { outline: 2px solid rgba(197,32,38,.4); outline-offset: 4px; border-radius: 2px; }
+
+  .review-card { transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease; }
+  .review-card:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(21,24,28,.06), 0 26px 50px -18px rgba(21,24,28,.28); }
+
+  .trust-chip { transition: transform .25s ease, background-color .25s ease; }
+  .trust-chip:hover { transform: translateY(-2px); }
+</style>
+</head>
+<body class="bg-white antialiased">
+
+  <!-- ============ TOP UTILITY BAR ============ -->
+  <div class="bg-brand-red text-white text-[13px] font-medium">
+    <div class="max-w-7xl mx-auto px-5 h-9 flex items-center justify-between gap-4">
+      <p class="flex items-center gap-2 truncate">
+        <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span class="truncate">Serving Cedar City, St. George &amp; all of Southern Utah</span>
+      </p>
+      <p class="hidden sm:flex items-center gap-2 shrink-0">
+        <span class="stars inline-flex text-g-yellow" aria-hidden="true">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+        </span>
+        <span>52 Five-Star Google Reviews</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-brand-line">
+    <div class="max-w-7xl mx-auto px-5 h-[76px] flex items-center justify-between gap-6">
+      <a href="#" class="flex items-center shrink-0" aria-label="Skyline Roofing Specialists home">
+        <img src="brand_assets/skyline-logo.png" alt="Skyline Roofing Specialists" class="h-11 w-auto" />
+        <span class="ml-3 hidden xl:block leading-tight">
+          <span class="block font-display font-800 text-brand-ink text-[15px] tracking-tight">SKYLINE ROOFING</span>
+          <span class="block text-[11px] font-semibold tracking-[.14em] text-brand-steel">SPECIALISTS</span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-semibold text-brand-slate">
+        <a href="#" class="navlink">Roofing</a>
+        <a href="#" class="navlink">Repairs</a>
+        <a href="#" class="navlink">Storm Damage</a>
+        <a href="#" class="navlink">Metal Roofing</a>
+        <a href="#reviews" class="navlink">Reviews</a>
+        <a href="#" class="navlink">About</a>
+      </nav>
+
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="tel:+14352633059" class="hidden md:flex flex-col items-end leading-tight group">
+          <span class="text-[11px] font-semibold tracking-[.14em] text-brand-steel">CALL FOR SERVICE</span>
+          <span class="font-display font-800 text-brand-ink text-[20px] tracking-tight group-hover:text-brand-red transition-colors">(435) 263-3059</span>
+        </a>
+        <a href="#estimate" class="btn-ghost inline-flex items-center rounded-lg border-2 border-brand-red text-brand-red font-display font-700 text-[14px] px-5 py-2.5">
+          Get A Free Estimate
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="relative hero-photo grain overflow-hidden">
+    <span class="hero-tint"></span>
+    <div class="relative max-w-7xl mx-auto px-5 py-14 lg:py-20">
+      <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-10 lg:gap-14 items-center">
+
+        <!-- Left: message -->
+        <div class="text-white max-w-2xl">
+          <p class="eyebrow text-[12.5px] font-bold text-brand-redlt mb-5 flex items-center gap-2">
+            <span class="w-8 h-px bg-brand-redlt"></span>
+            LICENSED &amp; INSURED UTAH ROOFERS
+          </p>
+          <h1 class="font-display font-900 tracking-tight leading-[1.03] text-[40px] sm:text-[52px] lg:text-[58px]">
+            Southern Utah's Most Trusted Roofing Specialists
+          </h1>
+          <p class="mt-6 text-[17px] leading-[1.7] text-white/85 max-w-xl">
+            For more than 10 years, Skyline Roofing Specialists has protected Utah homes with expert
+            roof replacement, storm restoration, and repairs. Get a free, no-obligation estimate from
+            a local crew your neighbors already trust.
+          </p>
+
+          <!-- Google reviews badge -->
+          <a href="#reviews" class="group mt-8 inline-flex items-center gap-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 pl-4 pr-5 py-3 hover:bg-white/15 transition-colors">
+            <span class="grid place-items-center w-11 h-11 rounded-full bg-white shadow-float shrink-0">
+              <!-- Google G -->
+              <svg class="w-6 h-6" viewBox="0 0 48 48" aria-hidden="true">
+                <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+                <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+                <path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/>
+                <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+              </svg>
+            </span>
+            <span class="leading-tight">
+              <span class="flex items-center gap-2">
+                <span class="font-display font-800 text-white text-[17px]">5.0</span>
+                <span class="stars inline-flex text-g-yellow">
+                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                  <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                </span>
+              </span>
+              <span class="text-[13px] text-white/80 group-hover:text-white transition-colors">52 verified Google reviews, every one 5 stars</span>
+            </span>
+          </a>
+
+          <!-- quick trust chips -->
+          <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-[14px] font-medium text-white/85">
+            <span class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-redlt" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 6.3a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l2.8 2.8 6.3-6.3a1 1 0 0 1 1.4 0z"/></svg>Free, no-obligation estimates</span>
+            <span class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-redlt" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 6.3a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l2.8 2.8 6.3-6.3a1 1 0 0 1 1.4 0z"/></svg>Owens Corning Preferred Contractor</span>
+            <span class="flex items-center gap-2"><svg class="w-4 h-4 text-brand-redlt" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 6.3a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l2.8 2.8 6.3-6.3a1 1 0 0 1 1.4 0z"/></svg>Emergency storm tarping</span>
+          </div>
+        </div>
+
+        <!-- Right: lead form -->
+        <div id="estimate" class="relative">
+          <div class="bg-white rounded-2xl shadow-card p-6 sm:p-7">
+            <div class="text-center mb-5">
+              <h2 class="font-display font-800 text-brand-ink text-[24px] leading-tight tracking-tight">Free estimate, no obligation.</h2>
+              <p class="text-[14px] text-brand-steel mt-1.5">Tell us about your roof. We reply within one business day.</p>
+            </div>
+            <form class="space-y-3" onsubmit="event.preventDefault(); this.querySelector('.form-done').classList.remove('hidden'); this.querySelector('button[type=submit]').textContent='Request Sent';">
+              <div class="grid grid-cols-2 gap-3">
+                <input class="field w-full rounded-lg border border-brand-line bg-brand-cream/60 px-3.5 py-3 text-[15px] placeholder:text-brand-steel" type="text" placeholder="First name" required aria-label="First name" />
+                <input class="field w-full rounded-lg border border-brand-line bg-brand-cream/60 px-3.5 py-3 text-[15px] placeholder:text-brand-steel" type="text" placeholder="Last name" required aria-label="Last name" />
+              </div>
+              <input class="field w-full rounded-lg border border-brand-line bg-brand-cream/60 px-3.5 py-3 text-[15px] placeholder:text-brand-steel" type="tel" placeholder="Phone number" required aria-label="Phone number" />
+              <input class="field w-full rounded-lg border border-brand-line bg-brand-cream/60 px-3.5 py-3 text-[15px] placeholder:text-brand-steel" type="email" placeholder="Email address" required aria-label="Email address" />
+              <div class="relative">
+                <select class="field w-full appearance-none rounded-lg border border-brand-line bg-brand-cream/60 px-3.5 py-3 text-[15px] text-brand-slate pr-10" aria-label="Service needed" required>
+                  <option value="" disabled selected>What do you need?</option>
+                  <option>Roof replacement</option>
+                  <option>Roof repair</option>
+                  <option>Storm damage restoration</option>
+                  <option>Metal roofing</option>
+                  <option>New construction</option>
+                  <option>Yearly maintenance</option>
+                  <option>Emergency tarping</option>
+                </select>
+                <svg class="w-4 h-4 text-brand-steel absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg>
+              </div>
+              <button type="submit" class="btn-primary w-full rounded-lg text-white font-display font-800 text-[16px] tracking-wide py-3.5 shadow-redglow">
+                GET MY FREE ESTIMATE
+              </button>
+              <p class="form-done hidden text-center text-[13.5px] font-semibold text-brand-green pt-1">Thanks. Your request is in. We will call you shortly.</p>
+              <p class="text-[11.5px] leading-snug text-brand-steel text-center pt-1">
+                By submitting, you agree to be contacted about your project by Skyline Roofing Specialists. No spam, ever.
+              </p>
+            </form>
+          </div>
+          <div class="absolute -z-10 -inset-3 rounded-3xl bg-brand-red/20 blur-2xl"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section class="bg-brand-cream border-b border-brand-line">
+    <div class="max-w-7xl mx-auto px-5 py-7">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6">
+        <div class="trust-chip flex items-center gap-3">
+          <span class="grid place-items-center w-11 h-11 rounded-xl bg-white shadow-sm text-brand-red shrink-0">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+          </span>
+          <span class="leading-tight"><span class="block font-display font-800 text-brand-ink text-[18px]">10+ Years</span><span class="block text-[13px] text-brand-steel">Protecting Utah homes</span></span>
+        </div>
+        <div class="trust-chip flex items-center gap-3">
+          <span class="grid place-items-center w-11 h-11 rounded-xl bg-white shadow-sm text-g-yellow shrink-0">
+            <svg class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          </span>
+          <span class="leading-tight"><span class="block font-display font-800 text-brand-ink text-[18px]">52 Perfect Reviews</span><span class="block text-[13px] text-brand-steel">5.0 stars on Google</span></span>
+        </div>
+        <div class="trust-chip flex items-center gap-3">
+          <span class="grid place-items-center w-11 h-11 rounded-xl bg-white shadow-sm text-brand-red shrink-0">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v5c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <span class="leading-tight"><span class="block font-display font-800 text-brand-ink text-[18px]">Licensed &amp; Insured</span><span class="block text-[13px] text-brand-steel">Utah Lic. #12987495-5501</span></span>
+        </div>
+        <div class="trust-chip flex items-center gap-3">
+          <span class="grid place-items-center w-11 h-11 rounded-xl bg-white shadow-sm shrink-0 overflow-hidden">
+            <img src="brand_assets/owens-corning-badge.png" alt="Owens Corning Preferred Contractor" class="h-8 w-auto" />
+          </span>
+          <span class="leading-tight"><span class="block font-display font-800 text-brand-ink text-[18px]">Owens Corning</span><span class="block text-[13px] text-brand-steel">Preferred Contractor</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GOOGLE REVIEWS WIDGET ============ -->
+  <section id="reviews" class="relative bg-white py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-5">
+      <!-- widget header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-10">
+        <div class="flex items-center gap-4">
+          <span class="grid place-items-center w-14 h-14 rounded-2xl bg-white border border-brand-line shadow-sm shrink-0">
+            <svg class="w-8 h-8" viewBox="0 0 48 48" aria-hidden="true">
+              <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/>
+              <path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/>
+              <path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/>
+              <path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/>
+            </svg>
+          </span>
+          <div>
+            <p class="text-[13px] font-semibold tracking-[.12em] text-brand-steel uppercase">Google Reviews</p>
+            <div class="flex items-center gap-3 mt-0.5">
+              <span class="font-display font-900 text-brand-ink text-[30px] leading-none">5.0</span>
+              <span class="stars inline-flex text-g-yellow">
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+              </span>
+              <span class="text-[14px] text-brand-steel">Based on <strong class="text-brand-ink font-semibold">52 reviews</strong></span>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn-ghost inline-flex items-center justify-center gap-2 rounded-lg border-2 border-brand-ink/15 text-brand-ink font-display font-700 text-[14px] px-5 py-2.5 self-start hover:border-brand-red">
+          Read all reviews on Google
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10h10M11 6l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <!-- review cards -->
+      <div class="grid md:grid-cols-3 gap-5">
+        <!-- card -->
+        <article class="review-card bg-white rounded-2xl border border-brand-line p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center w-11 h-11 rounded-full bg-brand-red text-white font-display font-800 text-[16px]">MR</span>
+              <div class="leading-tight">
+                <p class="font-semibold text-brand-ink text-[15px]">Marcus Reed</p>
+                <p class="text-[12.5px] text-brand-steel">Cedar City, UT</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+          </div>
+          <span class="stars inline-flex text-g-yellow mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          </span>
+          <p class="text-[14.5px] leading-[1.65] text-brand-slate">After a windstorm tore up our shingles, Skyline had a crew out the next morning. Clean, professional, and the new roof looks incredible. Best contractor experience we have had.</p>
+        </article>
+        <!-- card -->
+        <article class="review-card bg-white rounded-2xl border border-brand-line p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center w-11 h-11 rounded-full bg-brand-slate text-white font-display font-800 text-[16px]">TC</span>
+              <div class="leading-tight">
+                <p class="font-semibold text-brand-ink text-[15px]">Tanya Coleman</p>
+                <p class="text-[12.5px] text-brand-steel">St. George, UT</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+          </div>
+          <span class="stars inline-flex text-g-yellow mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          </span>
+          <p class="text-[14.5px] leading-[1.65] text-brand-slate">They walked me through every option, no pressure at all. The estimate was honest and the crew finished a full tear-off in two days. My new metal roof is gorgeous.</p>
+        </article>
+        <!-- card -->
+        <article class="review-card bg-white rounded-2xl border border-brand-line p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center w-11 h-11 rounded-full bg-brand-ink text-white font-display font-800 text-[16px]">DB</span>
+              <div class="leading-tight">
+                <p class="font-semibold text-brand-ink text-[15px]">Derek Bishop</p>
+                <p class="text-[12.5px] text-brand-steel">Enoch, UT</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18c-.44-1.32-.69-2.73-.69-4.18s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
+          </div>
+          <span class="stars inline-flex text-g-yellow mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg><svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9L10 1.5z"/></svg>
+          </span>
+          <p class="text-[14.5px] leading-[1.65] text-brand-slate">Called for an emergency leak during a storm and they had it tarped within hours. Followed up with a permanent repair that day. These folks genuinely care about their customers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER STRIP ============ -->
+  <footer class="bg-brand-ink text-white/70">
+    <div class="max-w-7xl mx-auto px-5 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="brand_assets/skyline-logo.png" alt="Skyline Roofing Specialists" class="h-9 w-auto" />
+        <span class="text-[13px]">Protecting Utah homes for over 10 years.</span>
+      </div>
+      <a href="tel:+14352633059" class="font-display font-800 text-white text-[18px] tracking-tight hover:text-brand-redlt transition-colors">(435) 263-3059</a>
+    </div>
+  </footer>
+
+</body>
+</html>
