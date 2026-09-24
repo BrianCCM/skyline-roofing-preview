@@ -246,10 +246,12 @@
      expanded hit area instead, so nothing moves visually. */
   @media (max-width: 767px){
     footer li > a{ display:inline-flex; align-items:center; min-height:44px; }
-    a[href^="tel:"]:not(.btn):not(.route):not(.ct){ display:inline-flex; align-items:center; min-height:44px; }
 
-    .lnk, .rev-more{ position:relative; }
-    .lnk::after, .rev-more::after{
+    /* NB: never set `display` here. It outranks Tailwind's `hidden` and
+       un-hides the desktop-only phone link on mobile. */
+    .lnk, .rev-more, a[href^="tel:"]:not(.btn):not(.route):not(.ct){ position:relative; }
+    .lnk::after, .rev-more::after,
+    a[href^="tel:"]:not(.btn):not(.route):not(.ct)::after{
       content:""; position:absolute; left:0; right:0;
       top:50%; transform:translateY(-50%); height:44px;
     }
